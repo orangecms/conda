@@ -130,10 +130,6 @@ def main():
         pathlist_str = pathlist_to_str(binpath)
         sys.stderr.write("prepending %s to PATH\n" % shelldict['path_to'](pathlist_str))
 
-        # Clear the root path if it is present
-        if rootpath:
-            path = path.replace(shelldict['pathsep'].join(rootpath), "")
-
         path = path.lstrip()
         # prepend our new entries onto the existing path and make sure that the separator is native
         path = shelldict['pathsep'].join(binpath + [path, ])
